@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:meditation_app_ui/screens/homepage.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final String path = "assets/images/";
@@ -50,22 +51,28 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 150.h),
-            Container(
-                alignment: Alignment.center,
-                height: 63.h,
-                width: double.infinity,
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Color(0xff8E97FD),
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
-                child: Text(
-                  "Get Started".toUpperCase(),
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.white,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Homepage()));
+              },
+              child: Container(
+                  alignment: Alignment.center,
+                  height: 63.h,
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Color(0xff8E97FD),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
-                ))
+                  child: Text(
+                    "Get Started".toUpperCase(),
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: Colors.white,
+                    ),
+                  )),
+            )
           ],
         ),
       ),
