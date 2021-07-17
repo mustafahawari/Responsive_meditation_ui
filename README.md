@@ -1,5 +1,5 @@
 # meditation_app_ui
 
-## Welcome Screen 
 
-![2021-07-14 15 43 18](https://user-images.githubusercontent.com/62948764/125609091-cc432e7c-b57a-4492-b591-c9eb988b9d21.png)
+
+![Your paragraph text](https://user-images.githubusercontent.com/62948764/126043187-39d267b6-ad2f-4df7-93a8-9324cab777ea.png)
