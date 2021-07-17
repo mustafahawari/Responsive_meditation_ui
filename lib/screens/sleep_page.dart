@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meditation_app_ui/consts/colors.dart';
+import 'package:meditation_app_ui/screens/play_option_page.dart';
 
 class SleepPage extends StatelessWidget {
   final List categories = [
@@ -82,13 +83,13 @@ class SleepPage extends StatelessWidget {
                                   Image.asset(
                                     "assets/images/" +
                                         categories[index]["image"],
-                                    height: 25.w,
+                                    height: 25.h,
                                     width: 25.w,
                                   )
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10.h),
+                            SizedBox(height: 5.h),
                             Text(
                               categories[index]["name"],
                               style: TextStyle(
@@ -162,23 +163,35 @@ class SleepPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 174.h / 177.h, // width/height
+                  mainAxisSpacing: 20.h,
+                  crossAxisSpacing: 20.h,
+                  childAspectRatio: 177.w / 174.h, // width/height
                 ),
                 itemCount: cat.length,
                 itemBuilder: (context, index) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 122.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          image: DecorationImage(
-                            image: AssetImage(
-                                "assets/images/" + cat[index]["image"]),
-                            fit: BoxFit.fill,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PlayOption(
+                                      title: cat[index]["name"],
+                                      image: cat[index]["image"],
+                                    )),
+                          );
+                        },
+                        child: Container(
+                          height: 122.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  "assets/images/" + cat[index]["image"]),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ),
